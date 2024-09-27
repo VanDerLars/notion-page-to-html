@@ -26,11 +26,11 @@ export class NodeHttpGetClient implements HttpGetClient {
                 data: `data:${format};base64,${stringData}`,
               });
             }
-
+            
             return resolve({
-              status: res.statusCode || 200,
-              headers: res.headers as Record<string, any>,
-              data: JSON.parse(stringData),
+                status: res.statusCode || 200,
+                headers: res.headers,
+                data: JSON.stringify(res.headers)
             });
           });
         })
